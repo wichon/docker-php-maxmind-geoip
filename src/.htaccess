@@ -1,0 +1,17 @@
+Header always set Access-Control-Allow-Origin "*"                   
+Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS" 
+Header always set Access-Control-Allow-Headers "X-Accept-Charset,X-Accept,Content-Type, Origin, Accept-Encoding"
+
+<IfModule mod_maxminddb.c>
+    MaxMindDBEnable On
+    MaxMindDBFile CITY_DB /opt/maxmind/GeoLite2-City.mmdb
+
+    MaxMindDBEnv MM_COUNTRY_CODE CITY_DB/country/iso_code
+    MaxMindDBEnv MM_COUNTRY_NAME CITY_DB/country/names/en
+    MaxMindDBEnv MM_CITY_NAME CITY_DB/city/names/en
+    MaxMindDBEnv MM_LONGITUDE CITY_DB/location/longitude
+    MaxMindDBEnv MM_LATITUDE CITY_DB/location/latitude
+    MaxMindDBEnv MM_POSTAL_CODE CITY_DB/postal/code
+    MaxMindDBEnv MM_REGION_CODE CITY_DB/subdivisions/0/iso_code
+    MaxMindDBEnv MM_REGION_NAME CITY_DB/subdivisions/0/names/en
+</IfModule>
