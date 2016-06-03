@@ -3,4 +3,7 @@ A simple geoip micro service implementation using the official [php-apache docke
 
 This product includes GeoLite2 data created by MaxMind, available from [http://www.maxmind.com](http://www.maxmind.com).
 
-It can be easily customized to use the paid version of the GeoIp2 Maxmind db.
+Features:
+* It can be easily customized to use the paid version of the GeoIp2 Maxmind db.
+* CORS ready
+* Supports retrieving client ip from X-Forwarded-For header
