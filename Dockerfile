@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:7.1.11-apache
 
 RUN apt-get update
 
@@ -28,8 +28,8 @@ RUN cd /tmp/ \
 RUN mkdir -p /opt/maxmind/
 
 RUN cd /tmp/ \
-	&& wget -q -O GeoLite2-City.mmdb.gz "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz" \
-	&& gunzip GeoLite2-City.mmdb.gz \
+	&& wget -q -O GeoIP2-City.tar.gz "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz" \
+	&& tar -zxf GeoIP2-City.tar.gz \
 	&& find . -type f -name "*.mmdb" | xargs -I dbfile mv dbfile /opt/maxmind/
 
 #enable mod_remoteip apache module and configure it to handle remote client ips via X-Forwarded-For header
